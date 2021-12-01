@@ -1,0 +1,10 @@
+include::./constant.adoc[]
+
+Preface
+-------
+
+This book is a self-learning guide to develop enterprise applications for the {jakarta-ee-9-1}, using {eclipse-gf-6-1}.
+
+{eclipse-gf-server} is the leading open-source and open-community platform for building and deploying next generation applications and services.
+
+{eclipse-gf-server} is hereafter referred to as {gf}.

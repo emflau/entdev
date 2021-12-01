@@ -1,0 +1,49 @@
+= Learn Enterprise Software Development: JakartaEE 9.1 and Maven
+:author: Man F. Lau
+:email: emflau@gmail.com
+:revnumber: 0.1
+:revdate: 1st December 2021
+:doctype: book
+:toc: left
+:toclevels: 4
+:toc-title: My Book
+:icons:
+:data-uri:
+:lang: en
+:language: javadocript
+:sectnums:
+
+include::constant.adoc[]
+
+[preface]
+include::chapters/about.adoc[]
+
+include::chapters/preface.adoc[]
+
+== Part 1 Set Up
+
+include::chapters/chapter1.adoc[]
+
+
+== First Part
+
+include::chapters/chapter2.adoc[]
+
+
+== Second Part
+
+include::chapters/chapter3.adoc[]
+
+[colophon]
+include::chapters/colophon.adoc[]
+
+include::chapters/bibliography.adoc[]
+
+[appendix]
+include::chapters/appendix.adoc[]
+
+ifdef::backend-docbook[]
+[index]
+Index
+-----
+endif::backend-docbook[]

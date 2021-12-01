@@ -1,0 +1,6 @@
+// pre-defined values for the book
+:eclipse-gf-server: Eclipse GlassFish Server
+:eclipse-gf-6-1: {eclipse-gf-server} version 6.1
+:jakarta-ee: Jakarta EE Platform
+:jakarta-ee-9-1: Jakarta EE 9.1 Platform
+:gf: GlassFish Server
