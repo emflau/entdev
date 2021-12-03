@@ -4,17 +4,22 @@
 :gf: GlassFish Server
 :jakarta-ee: Jakarta EE Platform
 :jakarta-ee-9-1: Jakarta EE 9.1 Platform
+
 :java-se: Java SE
 :java-se-full: Java Platform, Standard Edition
 :jdk-full: Java Development Kit
+
 :apache-nb: NetBeans
 :apache-nb-full: Apache NetBeans Integrated Development Environment (IDE)
 :apache-nb-12-5: {apache-nb-full} 12.5
+
 :openjdk: OpenJDK
 :openjdk-11: {openjdk} 11
 :openjdk-full: Open {jdk-full}
 :openjdk-full-11: {openjdk-full} 11
 
+:openjdk-11-url: https://adoptium.net/?variant=openjdk11&jvmVariant=hotspot
+:adoptium-url: https://adoptium.net/
 
 
 :eclipse-gf-cv: {eclipse-gf-6-1}
