@@ -1,6 +1,24 @@
 // pre-defined values for the book
 :eclipse-gf-server: Eclipse GlassFish Server
 :eclipse-gf-6-1: {eclipse-gf-server} version 6.1
+:gf: GlassFish Server
 :jakarta-ee: Jakarta EE Platform
 :jakarta-ee-9-1: Jakarta EE 9.1 Platform
-:gf: GlassFish Server
+:java-se: Java SE
+:java-se-full: Java Platform, Standard Edition
+:jdk-full: Java Development Kit
+:apache-nb: NetBeans
+:apache-nb-full: Apache NetBeans Integrated Development Environment (IDE)
+:apache-nb-12-5: {apache-nb-full} 12.5
+:openjdk: OpenJDK
+:openjdk-11: {openjdk} 11
+:openjdk-full: Open {jdk-full}
+:openjdk-full-11: {openjdk-full} 11
+
+
+
+:eclipse-gf-cv: {eclipse-gf-6-1}
+:jakarta-ee-cv: {jakarta-ee-9-1}
+:apache-nb-cv: {apache-nb-12-5}
+:openjdk-cv: {openjdk-11}
+:openjdk-full-cv: {openjdk-full-11}

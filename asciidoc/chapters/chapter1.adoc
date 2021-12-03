@@ -1,0 +1,16 @@
+include::./constant.adoc[]
+
+== Installation Details
+
+Please be careful in following the installation instructions to the letter. Otherwise, you may end up encountering a lot of issues in using these tools.
+
+=== Installing on MS Windows Platform
+
+==== Installing {openjdk-cv}
+
+
+
+=== Installing on Mac OS X
+
+
+=== Installing on Linux (to do)

@@ -3,7 +3,16 @@ include::./constant.adoc[]
 Preface
 -------
 
-This book is a self-learning guide to develop enterprise applications for the {jakarta-ee-9-1}, using {eclipse-gf-6-1}.
+This book provides a self-learning guide to develop enterprise applications for the {jakarta-ee-cv}, using {eclipse-gf-cv}.
+
+It includes the installation of the following
+
+. {openjdk-full-cv}
+. {apache-nb-cv}, and 
+. {eclipse-gf-cv}
+
+{openjdk} ({openjdk-full}) is a free and open-source implementation of the {java-se-full} ({java-se}).
+
 
 {eclipse-gf-server} is the leading open-source and open-community platform for building and deploying next generation applications and services.
 
