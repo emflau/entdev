@@ -1,0 +1,206 @@
+:imagesdir: images
+include::./constant.adoc[]
+
+:sectnums:
+
+== Installation
+
+[NOTE]
+====
+Please be very careful in following the installation instructions to the letter. Otherwise, you may end up encountering a lot of issues in using these tools to build enterprise software applications.
+====
+
+In this chapter, we will learn how to install the required software packages in the following platforms
+
+[arabic]
+. xref:install-win[{ms-win}]
+. {mac-osx-cv}
+. {ubuntu-cv}
+
+=== [[install-win]] Installation on MS Windows Platform
+
+In this section, we will install the following software packages and set up relevant parameters in a 64-bit MS Windows platform. I am using MS Win 11 x64. Here are the main steps:
+
+[arabic]
+. xref:install-jdk-win[Install {openjdk-cv}]
+. xref:setup-jdk-policy[Set up JDK policy for database connection]
+. xref:install-nb-win[Install {apache-nb-cv}]
+. xref:setup-nb[Set up {apache-nb-cv}]
+. xref:install-gf-win[Install {eclipse-gf-cv}]
+. xref:setup-gf[Set up {eclipse-gf-cv} to work in {apache-nb-cv}]
+
+
+==== [[install-jdk-win]]Installing {openjdk-cv}
+
+[arabic]
+. Downlad {openjdk-cv-url}[{openjdk} version 11 (or, {openjdk-11})] from {adoptium-url}[Adoptium] (See Fig. e1 for a sample)
++
+[TIP]
+====
+. Check that the choosen platform for download is "Windows x64"
+
+. Choose "Temurin 11 (LTS)"
+
+. Select "Latest release"
+====
++
+.Adoptium
+image::ch01-fig-Adoptium.png[Adoptium]
++
+[NOTE]
+====
+. Besides Eclipse's Temurin OpenJDK, there are other jdk providers as well. I have not tried any of these. You may want to use your own favourite OpenJDK provider, but at your own risk.
+
+. Remember where you store the downloaded installation file.
+====
+
+. Open a "File Explorer" window
+
+. Browse to the folder where you stored the installation file (usually, it is your Downloads folder)
+
+. Install the JDK by running the installation program and remember to *record* the folder where you install your JDK
++
+[NOTE]
+====
+. You need administrator rights to do this.
+
+. When prompted for "Custom Setup", make sure you set the `Set JAVA_HOME variable` option to `Entire feature will be installed on local hard drive`.
+
+. After the installation, go to `{win-jdk-folder}` (the default JDK's installation folder for MS Windows) to see whether you have it. If you have changed the installation folder during the installation, you better record it. You need to use this folder in later tasks (e.g. xref:java-env-var[Step 5] below). Whenever you see `$\{JDK_ROOT}` in later Lab tasks, you need to replace it with your actual JDK folder name. For example, you may need to replace `$\{JDK_ROOT}` by `{win-jdk-folder}`.
+
+====
+
+. [[java-env-var]]Set up the environment variables `JAVA_HOME` and `PATH` for Java compiler
+
+.. Open "Control Panel"
+
+.. In the "Control Panel" window, choose "System and Security" and then "System"
++
+NOTE: MS Windows will open a "System" window under "Settings".
+
+.. In the "System" window, click on "Advanced system settings" under "Device specifications" and on the right of "Related Links"
++
+NOTE: MS Windows will open a "System Properties" window.
+
+.. In the "System Properties" window, do the following
+
+... Select the "Advanced" tab
+
+... Click on the btn:[Environment Variables...] button
++
+NOTE: MS Windows will open an "Environment Variables" window.
+
+.. In the "Environment Variables" window, do the following
+
+... In the "User variables for `[your username]` " text area, do the following
++
+NOTE: Your actual username in your MS Windows Platform will be shown in the "User variables for `[your username]` " text area. For example, if your username is `emflau`, it will show "User variables for emflau"
+
+.... Click on the btn:[New...] button
++
+NOTE: MS Windows will open a "New User Variable" window.
+
+.... In the "New User Variable" window, do the following
+
+..... Enter `JAVA_HOME` in the "Variable name" text field
+
+..... Enter `$\{JDK_ROOT}` in the Variable value" text field
++
+NOTE: Remember to substitute `$\{JDK_ROOT}` with the actual folder name you recorded earlier (e.g. `{win-jdk-folder}`)
+
+..... Click on the btn:[OK] button
++
+NOTE: Please check that `JAVA_HOME` has now been set properly.
+
+... In the "System variables" text area, select "Path" under the "Variable" column
++
+NOTE: You may need to scroll down the text area to find the "Path" variable.
+
+... Click the btn:[Edit...] button under the "System variables" text area
++
+NOTE: MS Windows will pop up an "Edit environment variable" window.
+
+... In the "Edit environment variable" window, do the following if you cannot find your `$\{JDK_ROOT}\bin` information after scrolling through the text area
+
+.... Click "New"
+
+.... Enter `$\{JDK_ROOT}\bin`
++
+NOTE: Remember to substitute `$\{JDK_ROOT}` with the actual folder name you recorded earlier (e.g. `{win-jdk-folder}`)
+
+.... Click the btn:[OK] button to save the information
++
+NOTE: MS Windows will close the "Edit environment variable" window and bring you back to the "Environment Variables" window.
+
+... Click the btn:[OK] button (in the "Environment Variables" window) to save the information
++
+NOTE: MS Windows will close the "Environment Variables" window and bring you back to the "System Properties" window.
+
+.. Click the btn:[OK] button (in the "System Properties" window) to save the information
++
+NOTE: MS Windows will close the "System Properties" window and bring you back to the "System" window under "Settings"
+
+.. Close the "Settings" window
+
+.. Close the "Control Panel" window
+
+. Verify that `JAVA_HOME` and `PATH` have been set properly
+
+.. Open a new Command Prompt window
+
+.. To check `JAVA_HOME`, type the following in the Command Prompt window
+
+ WIN-PROMPT>echo %JAVA_HOME%
++
+The output should be `${JDK_ROOT}` (e.g. `{win-jdk-folder}`).
+
+.. To check `PATH`, type the following in the Command Prompt window
+
+ WIN-PROMPT>echo %PATH%
++
+to show the directories that MS Windows will search to find your programs / applications. This time, you should be able to see `${JDK_ROOT}\bin` somewhere in the output (e.g. `\...;{win-jdk-folder}\bin;\...`)
+
+==== [[setup-jdk-policy]]Set up JDK policy for database connection
+
+. Open a "File Explorer" window
+
+. Navigate to the folder `$\{JDK_ROOT}\conf\security`
++
+NOTE: Remember to substitute `$\{JDK_ROOT}` with the actual folder name you recorded earlier
+
+. Locate the file `java.policy`
+
+. Open your favourite text editor in *administrator* mode to edit the `java.policy` file
++
+CAUTION: Make sure you have a backup copy of the file for restoration, in case you mess up the original file.
+
+. Locate the following line in the `java.policy` file
++
+[source, text]
+ // Standard extensions ...
+
+. Add the following lines to the `java.policy` file just after the line `// Standard extensions \...`
++
+[source, text]
+grant {
+   // add for learning Enterprise Development
+   permission java.net.SocketPermission "localhost:1527", "listen,resolve";
+ };
+
++
+NOTE: You can add these lines at the end of the file. However, I think it is easier to find these lines at the beginning of a file.
+
+. Save the `java.policy` file
+
+
+
+
+HERE
+
+:{openjdk-11-url}: https://adoptium.net/?variant=openjdk11&jvmVariant=hotspot
+:{adoptium-url}: https://adoptium.net/
+
+=== Installing on Mac OS X
+
+
+=== Installing on Linux (to do)

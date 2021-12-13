@@ -7,40 +7,43 @@
 :toc: left
 :toclevels: 4
 :toc-title: My Book
-:icons:
+:icons: font
 :data-uri:
 :lang: en
 :language: javadocript
-:sectnums:
+:encoding: utf-8
+:imagesdir: images
+:experimental:
+
 
 include::constant.adoc[]
 
 [preface]
-include::chapters/about.adoc[]
+include::./about.adoc[]
 
-include::chapters/preface.adoc[]
+include::./preface.adoc[]
 
-== Part 1 Set Up
+:sectnums:
 
-include::chapters/chapter1.adoc[]
+include::./chapter1.adoc[]
 
 
 == First Part
 
-include::chapters/chapter2.adoc[]
+include::./chapter2.adoc[]
 
 
 == Second Part
 
-include::chapters/chapter3.adoc[]
+include::./chapter3.adoc[]
 
 [colophon]
-include::chapters/colophon.adoc[]
+include::./colophon.adoc[]
 
-include::chapters/bibliography.adoc[]
+include::./bibliography.adoc[]
 
 [appendix]
-include::chapters/appendix.adoc[]
+include::./appendix.adoc[]
 
 ifdef::backend-docbook[]
 [index]
