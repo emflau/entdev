@@ -23,11 +23,11 @@ In this section, we will install the following software packages and set up rele
 
 [arabic]
 . xref:install-jdk-win[Install {openjdk-cv}]
-. xref:setup-jdk-policy[Set up JDK policy for database connection]
+. xref:setup-jdk-policy-win[Set up JDK policy for database connection]
 . xref:install-nb-win[Install {apache-nb-cv}]
-. xref:setup-nb[Set up {apache-nb-cv}]
+. xref:setup-nb-win[Set up {apache-nb-cv}]
 . xref:install-gf-win[Install {eclipse-gf-cv}]
-. xref:setup-gf[Set up {eclipse-gf-cv} to work in {apache-nb-cv}]
+. xref:setup-gf-win[Set up {eclipse-gf-cv} to work in {apache-nb-cv}]
 
 
 ==== [[install-jdk-win]]Installing {openjdk-cv}
@@ -70,7 +70,7 @@ image::ch01-fig-Adoptium.png[Adoptium]
 
 ====
 
-. [[java-env-var]]Set up the environment variables `JAVA_HOME` and `PATH` for Java compiler
+. [[set-win-java-env-var]]Set up the environment variables `JAVA_HOME` and `PATH` for Java compiler
 
 .. Open "Control Panel"
 
@@ -160,7 +160,7 @@ The output should be `${JDK_ROOT}` (e.g. `{win-jdk-folder}`).
 +
 to show the directories that MS Windows will search to find your programs / applications. This time, you should be able to see `${JDK_ROOT}\bin` somewhere in the output (e.g. `\...;{win-jdk-folder}\bin;\...`)
 
-==== [[setup-jdk-policy]]Set up JDK policy for database connection
+==== [[setup-jdk-policy-win]]Set up JDK policy for database connection
 
 . Open a "File Explorer" window
 
@@ -191,6 +191,142 @@ grant {
 NOTE: You can add these lines at the end of the file. However, I think it is easier to find these lines at the beginning of a file.
 
 . Save the `java.policy` file
+
+==== [[install-nb-win]]Install {apache-nb-cv}
+
+We will use {apache-nb-cv} (or simply {apache-nb}). You need to install JDK first before installing {apache-nb}. Also, you must set the `JAVA_HOME` environment variable beforehand to be able to install {apache-nb}.
+
+We will perform a *customized* installation. Please read the instructions below carefully during the installation. *Do not* accept defaults all the way through, it won't work!
+
+[arabic]
+. Download the {apache-nb-cv-url}[{apache-nb-cv}] window installer
++
+NOTE: Remember the folder where you store the NetBeans installer.
+
+. *Customized* installation of NetBeans 
+
+.. Go to the folder where you stored the downloaded NetBeans installer
+
+.. Run the installation program as an administrator
++
+TIP: Select it, right click your mouse and select "Run as administrator"
+
+.. Answer "Yes" when prompted whether you want to run the installer
++
+NOTE: NetBeans will extract and open the `Apache NetBeans IDE Installer` window.
++
+TIP: If you encounter a failure due to no Java runtime or alike, please make sure you have set the `JAVA_HOME` environment variable in xref:set-win-java-env-var[here].
+
+.. In the `Apache NetBeans IDE Installer` window, do the following
+
+... Check that the following five items are pre-selected for installation
+
+.... `Base IDE`
+.... `Java SE`
+.... `Java EE`
+.... `HTML5/JavaScript`
+.... `PHP`
+
+... Click the btn:[Next >] button
+
+... Accept the license agreement after you have a good look at it :-)
+
+... Enter `{win-nb-folder}` in the `Install the Apache NetBeans IDE to` text field
++
+[WARNING]
+====
+If the folder name of NetBeans IDE contains space characters (for example, `{win-nb-df-folder}` - the default for MS Windows), NetBeans will not work for our {jakarta-ee} development work. It is better to change it now.
+====
+
+... Keep the pre-selected JDK in the `JDK\TM for the Apache NetBeans IDE` text field
+
+... Click the btn:[Next >] button
+
+... Click the btn:[Install] button
+
+... Wait for the installation to finish
+
+==== [[setup-nb-win]]Set up {apache-nb-cv}
+
+. Start NetBeans (if you have not done so)
+
+. *If you cannot see the menu option menu:Tools[Java Platform] in the pull down menu*, select menu:Tools[Plugins] in the pull down menu and do the following
++
+NOTE: NetBeans will display a "Plugins" window
+
+.. In the Plugins window, do the following
+
+... Select the "Installed" tab
++
+NOTE: There may be a number after the word "Installed" (e.g. `Installed (11)`). The number shows how many plugins have been installed.
+
+... Check the following plugs to activate them
+
+.... `HTML5`
+.... `Java SE`
+.... `Tools`
+.... `Java Web and EE`
+.... `Base IDE`
+
+... Click the btn:[Activate] button
++
+[NOTE]
+====
+NetBeans will open a "NetBeans IDE Installer" window and possibily prompt you for further required plugins to be installed.
+====
+
+... In the "NetBeans IDE Installer" window, do the following
+
+.... Click the btn:[Activate] button
++
+[NOTE]
+====
+. NetBeans will then install and activate all the relevant plugins.
+
+. After all relevant plugins are installed and activated, NetBeans will prompt you to finish this activation process.
+====
+
+.... Click the btn:[Finish] button
+
+... Click the btn:[Close] button
++
+NOTE: NetBeans is now back to the original main window.
+
+. Select menu:Tools[Java Platforms] in the pull down menu
++
+NOTE: NetBeans will display a "Java Platform Manager" window.
+
+.. In the "Java Platform Manager" window, do the following
+
+... In the "Platforms:" text area, check whether you have either "{jdk-cv} (Default)" or "{jdk-cv}"
+
+.... If yes, that is fine. Go to xref:setup-gf-win[here].
+
+.... If no, do the following
+
+..... Click the btn:[Add Platform...] button (located just below the "Platforms" text area)
+
+..... In the "Add Java Platform" window, do the following
+
+...... Select "Java Standard Edition"
+
+...... Click the btn:[Next >] button
++
+[NOTE]
+====
+. If you have only one Java version and is not "{jdk-cv} (Default)", this is a bit strange because you have already install a new `JDK {jdk-cv-full}` and this should just show "{jdk-cv} (Default)". Anyway, NetBenas display another "Add Java Platform" window and will prompt you to choose the relevant Platform Folder. In this case, you need to naviagate to your own {jdk-cv} root folder (e.g. `{win-jdk-folder}`) and select it.
+
+. If you have multiple versions of Java installed, NetBeans will display another "Add Java Platform" window with several Java versions (JDK and JRE) for you to select. Make sure you select the appropriate `jdk-{jdk-cv-full}` that you have just installed..
+====
+
+..... Click the btn:[Next >] button
+
+..... Click the btn:[Finish] button
++
+NOTE: NetBeans now has "{jdk-cv}" in the "Java SE Platforms". Beware that, this may be different from "{jdk-cv} (Default)" which we will be using in this book.
+
+.... Click the btn:[Close] button
+
 
 
 

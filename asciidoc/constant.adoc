@@ -1,20 +1,9 @@
 // pre-defined values for the book
-:eclipse-gf-server: Eclipse GlassFish Server
-:eclipse-gf-6-1: {eclipse-gf-server} version 6.1
-
-:gf: GlassFish Server
-
-:jakarta-ee: Jakarta EE Platform
-
-:jakarta-ee-9-1: Jakarta EE 9.1 Platform
-
+// JDK
 :java-se: Java SE
 :java-se-full: Java Platform, Standard Edition
+:jdk-11: JDK 11
 :jdk-full: Java Development Kit
-
-:apache-nb: NetBeans
-:apache-nb-full: Apache NetBeans Integrated Development Environment (IDE)
-:apache-nb-12-5: {apache-nb-full} 12.5
 
 :openjdk: OpenJDK
 :openjdk-11: {openjdk} 11
@@ -24,20 +13,49 @@
 :openjdk-11-url: https://adoptium.net/?variant=openjdk11&jvmVariant=hotspot
 :adoptium-url: https://adoptium.net/
 
+
+// NetBeans
+:nb: NetBeans
+:apache-nb: Apache {nb} IDE
+:apache-nb-full: Apache {nb} Integrated Development Environment (IDE)
+:apache-nb-12-5: {apache-nb-full} 12.5
+
+:apache-nb-12-5-url: https://netbeans.apache.org/download/nb125/nb125.html
+
+// GlassFish
+:gf: GlassFish Server
+:eclipse-gf-server: Eclipse {gf}
+:eclipse-gf-6-1: {eclipse-gf-server} version 6.1
+
+
+:jakarta-ee: Jakarta EE Platform
+
+:jakarta-ee-9-1: Jakarta EE 9.1 Platform
+
+
 :ms-win: MS Windows
 :ms-win-11: {ms-win} 11 x64
 :mac-osx-bs: Mac OSX Big Sur
 :ubuntu-20-4: Ubuntu Linux 20.04 LTS
 
+// current versions
+:openjdk-cv: {openjdk-11}
+:openjdk-full-cv: {openjdk-full-11}
+:jdk-cv: {jdk-11}
+:jdk-cv-full: 11.0.13.8
+:openjdk-cv-url: {openjdk-11-url}
+
+:apache-nb-cv: {apache-nb-12-5}
+:apache-nb-cv-url: {apache-nb-12-5-url}
+
 :eclipse-gf-cv: {eclipse-gf-6-1}
 :jakarta-ee-cv: {jakarta-ee-9-1}
-:apache-nb-cv: {apache-nb-12-5}
-:openjdk-cv: {openjdk-11}
-:openjdk-cv-url: {openjdk-11-url}
-:openjdk-full-cv: {openjdk-full-11}
+
 :ms-win-cv: {ms-win-11}
 :mac-osx-cv: {mac-osx-bs}
 :ubuntu-cv: {ubuntu-20-4}
 
-:jdk-cv-full: 11.0.13.8
 :win-jdk-folder:  C:\Program Files\Eclipse Adoptium\jdk-{jdk-cv-full}-hotspot
+:win-nb-folder: C:\apps\NetBeans-12.5
+:win-nb-df-folder: C:\Program Files\NetBeans-12.5
+:mac-jdk-folder: 
